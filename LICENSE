@@ -1,0 +1,53 @@
+AISV 分享包 — 分类型授权
+
+本仓库内容按类型适用不同许可，请按目录对应：
+
+------------------------------------------------------------------
+1. 代码（code/、tools/）
+------------------------------------------------------------------
+MIT License
+
+Copyright (c) 2026 AISV Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+------------------------------------------------------------------
+2. 文档（README.md、01-method/、03-stack/、04-上手/、templates/*.md、archive/）
+------------------------------------------------------------------
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+你可以复制、改编、商业使用，但必须署名并注明是否修改。
+建议署名：`AISV 分享包（https://github.com/<your-org>/aisv-share）`。
+
+------------------------------------------------------------------
+3. 案例与作品（02-case/、《感谢祭之冰》名称、角色设定、分镜、成片）
+------------------------------------------------------------------
+All rights reserved（保留所有权利）。
+
+未授予复制、改编、商业使用或再分发许可。引用与评论请注明出处；
+如需其他用途，请联系作者。
+
+------------------------------------------------------------------
+4. 第三方
+------------------------------------------------------------------
+模型、权重与工具不随本仓库分发；其许可由各自提供方规定。
+详见 THIRD_PARTY_NOTICES.md。
+
+本仓库与 MiniMax、Comfy Org 及其他第三方无隶属或背书关系。

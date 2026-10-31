@@ -1,0 +1,58 @@
+{
+ "revision": "2026-09-24b+share",
+ "purpose": "H3 Ref2VA 生成配置唯一事实源（稳定律 + 开源标准化）。所有脚本参数从本文件读；preflight 精确校验模板/产物 vs 本规格；改配置 = 改本文件 + git 提交 + 用户审。禁止脚本内散落参数（事故史见 history）。",
+ "env": {
+  "h3_root": "C:/AI/ComfyUI_H3",
+  "h3_port": 8188,
+  "project_root": ".",
+  "note": "Change only this section for a new machine (project root, instance root, ports, scene dir). The rest is the generation spec.",
+  "scene_dir": "magic"
+ },
+ "chain": "legacy",
+ "chain_note": "legacy（SplitSigmas+ManualSigmas 保守精修）。T8mars 节点已随 E3 删包 2026-08-26；build_twopass --chain 默认已改 legacy（2026-08-30 配置突变事故）",
+ "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+ "pass1_mp": 0.26,
+ "pass1_resolution": "704x384",
+ "pass1_note": "384p 抽卡定案（2026-08-30 用户：降档找稳定区，社区 5080 实测 4 招一致；快 ~25% 且模型稳定域内）。实测：ResolutionSelector 0.26MP 按 1024^2/MP 定义 → 704x384（precheck 曾误打印 672x384 = 1e6 定义错误）",
+ "upscale_scale": 1.8333,
+ "deliver_resolution": "1280x704",
+ "deliver_note": "704p 交付（704x384 x1.8333 → align 32 → 1280x704，实测确认）。超分脚本（build_flashvsr 等）输出必须派生本值，禁止写死 712 等变体",
+ "label": "384p10",
+ "audio_shift": 6.0,
+ "shift_video": 12.0,
+ "pass2_sigmas": "0.9035, 0.8000, 0.6316, 0.3158, 0.0000",
+ "sampler": "euler",
+ "scheduler": "simple",
+ "seed_policy": "新种子域递增不复用（每改 md 重抽必换种子；避开历史域）",
+ "video_ref_policy": "锁帧镜（接力镜）生成必须带 ref_videos.ref_video_0 = 上镜尾 video_ref_frames 帧（2026-08-30 试点定案：首帧位移 24→6/14px，社区 Herrgotts/MotionContext 同款 context 延续；图 ref 保留）。执行入口：diag/relay.py --shot X（禁止手敲 ffmpeg 截取）",
+ "video_ref_frames": 24,
+ "relay_tail_sec": 0.05,
+ "relay_fps": 24,
+ "seam_policy": "交付接缝 = crossfade（纯后处理 ffmpeg xfade，盖剩余位移；非 fade 无黑屏）+ 可选颜色匹配（修 H3 系统性偏暗）。执行入口：diag/seam_join.py（禁止手敲 xfade）",
+ "seam_xfade_sec": 0.2,
+ "seam_audio_crossfade_sec": 0.2,
+ "seam_audio_sample_rate": 48000,
+ "preview_times": [
+  1.5,
+  4.0,
+  6.5,
+  9.0
+ ],
+ "forbidden_nodes": [
+  "MiniMaxH3LearnedTwoPassParityPlanT8Advanced",
+  "MiniMaxH3DualClockSamplerT8",
+  "MiniMaxH3AudioConditioningT8",
+  "MiniMaxH3TwoPassLatentReconcileT8Advanced",
+  "MiniMaxH3TwoPassDetailMixerT8Advanced"
+ ],
+ "history": [
+  "2026-08-30: 建立稳定律规格源。事故：build_twopass --chain 默认=t8mars 生成删包节点模板；PASS1_MP 默认 0.26 vs 定案 0.41 — 两者都需每次手工传参才稳，漏传即漂。",
+  "2026-08-30b: 用户定案 384p 抽卡（0.26MP 672x384）→ 二采 704p（1216x704，scale 1.8333）。理由：降档找模型稳定区（社区 5080 实测）+ 抽卡快 ~25%。label 480p10 → 384p10。act1 重抽起执行。",
+  "2026-09-01a: 配置根治（开源标准化）。事故史 7 例（tail24 帧数 5-8 vs 22-24 / chain 漂移 / MP 漂移 / episodes 缓存 / prefix 落旧 / skids 残留 / -c copy GOP）。机制：env 段集中路径 + 数字字段（video_ref_frames/seam_* 等）+ 执行入口注释（relay.py/seam_join.py 禁手敲）+ preflight 精确校验（== spec 而非下限）+ 产物 ffprobe 校验 + --status 生效摘要。",
+  "2026-09-02a: upscale 段标准化 — 模型/batch=2(16=OOM 事故)/目标 1080p；执行入口 upscale_batch.py + join_clips.py（拼接累积 offset 公式固化，25 镜 27s 截断事故）"
+ ],
+ "upscale_policy": "交付超分 = Real-CUGAN 2x 逐镜分帧（upscale_frames 内存安全版）→ 降采样目标分辨率。执行入口：diag/upscale_batch.py（禁止手写循环）",
+ "upscale_model": "C:/AI/ComfyUI_H3/ComfyUI/models/upscale_models/up2x-latest-conservative.pth",
+ "upscale_batch": 2,
+ "upscale_target": "1920x1080"
+}

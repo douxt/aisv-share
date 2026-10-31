@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 运行产物与日志
+*.log
+*.jsonl
+out/
+work/
+output/
+preview/
+_archive_*
+*.bak
+*.tmp
+
+# 媒体与权重（不要入库）
+*.mp4
+*.mov
+*.mkv
+*.webp
+*.png
+*.jpg
+*.jpeg
+*.safetensors
+*.ckpt
+*.pth
+*.pt
+*.onnx
+
+# 凭证与环境
+.env
+.env.*
+*.key
+*.pem
+secrets*
+credentials*
+
+# 本地工具状态
+.claude/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

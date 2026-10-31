@@ -1,0 +1,79 @@
+{
+ "_readme": "配置唯一事实源。字段含义见 03-stack/配置参考.md。改配置=改本文件，禁止在脚本里硬编码。",
+ "revision": "1",
+ "stack": {
+  "name": "<your-model>",
+  "version": "<2026-xx>",
+  "capabilities": {
+   "max_shot_sec": 10,
+   "max_shot_sec_at_1080p": 5,
+   "max_ref_images": 5,
+   "supports_first_frame": true,
+   "supports_last_frame": false,
+   "supports_ref_video": false,
+   "ref_video_frames": 24,
+   "supports_audio_ref": false,
+   "max_audio_refs": 3,
+   "output_has_audio": true,
+   "reproducible_seed": true,
+   "scriptable": true,
+   "predictable_duration": false
+  }
+ },
+ "generate": {
+  "draw": {
+   "resolution": [
+    704,
+    384
+   ],
+   "steps": 4,
+   "sampler": "",
+   "seed_range": [
+    10000,
+    19999
+   ]
+  },
+  "refine": {
+   "resolution": [
+    1280,
+    704
+   ],
+   "steps": 8,
+   "sampler": "",
+   "seed_range": [
+    20000,
+    29999
+   ]
+  }
+ },
+ "relay": {
+  "tail_frames": 24,
+  "reencode": true
+ },
+ "seam": {
+  "xfade_sec": 0.2,
+  "audio_xfade_sec": 0.2
+ },
+ "deliver": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 24,
+  "lufs": -16,
+  "audio_sample_rate": 48000
+ },
+ "thresholds": {
+  "first_frame_diff_good": 15,
+  "first_frame_diff_ok": 25,
+  "first_frame_diff_fail": 50,
+  "audio_peak_max_db": 0.0
+ },
+ "paths": {
+  "project_root": ".",
+  "work_dir": "./work",
+  "output_dir": "./out",
+  "assets_dir": "./assets"
+ },
+ "env": {
+  "scene_dir": "magic"
+ }
+}

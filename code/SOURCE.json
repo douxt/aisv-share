@@ -1,0 +1,78 @@
+{
+ "synced_at": "2026-10-31T19:03:04+08:00",
+ "note": "code/ 是手工维护的 fork；本清单只记录上游快照哈希。",
+ "files": {
+  "run_twopass_auto.py": {
+   "source": "diag/run_twopass_auto.py",
+   "sha256": "720195284a19698e"
+  },
+  "build_twopass.py": {
+   "source": "diag/build_twopass.py",
+   "sha256": "fbf9d32b63a6ed06"
+  },
+  "relay.py": {
+   "source": "diag/relay.py",
+   "sha256": "9391161ff3a295d7"
+  },
+  "quality_gate.py": {
+   "source": "diag/quality_gate.py",
+   "sha256": "bfcd200eac1ee913"
+  },
+  "seam_join.py": {
+   "source": "diag/seam_join.py",
+   "sha256": "f8be74e962f36d30"
+  },
+  "join_clips.py": {
+   "source": "diag/join_clips.py",
+   "sha256": "fed2c91bbdc1fb8e"
+  },
+  "sync_assets.py": {
+   "source": "diag/sync_assets.py",
+   "sha256": "46c3465d2f132b5b"
+  },
+  "chain_check.py": {
+   "source": "diag/chain_check.py",
+   "sha256": "ac79aad8e40b67db"
+  },
+  "audio_check.py": {
+   "source": "diag/audio_check.py",
+   "sha256": "85403e8bda7dbd16"
+  },
+  "upscale_batch.py": {
+   "source": "diag/upscale_batch.py",
+   "sha256": "403a46d9b9f126ba"
+  },
+  "upscale_frames.py": {
+   "source": "diag/upscale_frames.py",
+   "sha256": "b65d9b3712ffda13"
+  },
+  "check_seam.py": {
+   "source": "diag/check_seam.py",
+   "sha256": "534a843829f2dbe4"
+  },
+  "check_frames.py": {
+   "source": "diag/check_frames.py",
+   "sha256": "b6605822ea4c3b52"
+  },
+  "tail_check.py": {
+   "source": "diag/tail_check.py",
+   "sha256": "5ac01064734006b2"
+  },
+  "check_scene_chain.py": {
+   "source": "diag/check_scene_chain.py",
+   "sha256": "0f42dfeb64d1c9db"
+  },
+  "check_lockframe_desc.py": {
+   "source": "diag/check_lockframe_desc.py",
+   "sha256": "e027ef7eb9afa85d"
+  },
+  "build_episodes.py": {
+   "source": "magic/scripts/build_episodes.py",
+   "sha256": "142109844e84cae5"
+  },
+  "twopass_spec.json": {
+   "source": "diag/twopass_spec.json",
+   "sha256": "20335d338fa587cc"
+  }
+ }
+}
